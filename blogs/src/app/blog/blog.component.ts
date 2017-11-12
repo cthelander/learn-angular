@@ -24,6 +24,9 @@ export class BlogComponent implements OnInit {
       newEntry.id = this.entries.length;
       this.selectedEntry = newEntry;
   }
+  doneEditing(): void {
+      this.selectedEntry = null;
+  }
 
   constructor() { }
 

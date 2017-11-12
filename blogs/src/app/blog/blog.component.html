@@ -6,9 +6,11 @@
       {{entry.title}}
   </li>
 </ul>
+
 <button (click)="addEntry()">
   New Post
 </button>
+
 <div *ngIf="selectedEntry">
   <h2>
       {{ selectedEntry.id }}
@@ -23,4 +25,7 @@
       </span>
      <input [(ngModel)]="selectedEntry.post" placeholder="post">
   </div>
+  <button (click)="doneEditing()">
+    Done
+  </button>
 </div>
