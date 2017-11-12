@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Entry } from '../blog-entry';
+import { ENTRIES } from '../entry-list';
 
 @Component({
   selector: 'app-blog',
@@ -9,11 +10,20 @@ import { Entry } from '../blog-entry';
 })
 export class BlogComponent implements OnInit {
 
-  entry: Entry = {
-      id: 1,
-      title: "My blog post",
-      post: "Today I made an app"
-  };
+  entries = ENTRIES;
+
+  selectedEntry: Entry;
+
+  onSelect(entry: Entry): void {
+      this.selectedEntry = entry;
+  }
+
+  addEntry(): void {
+    let newEntry = new Entry;
+      this.entries.push(newEntry);
+      newEntry.id = this.entries.length;
+      this.selectedEntry = newEntry;
+  }
 
   constructor() { }
 

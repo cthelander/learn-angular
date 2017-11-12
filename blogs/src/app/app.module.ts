@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
     BlogComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
     FormsModule
   ],
   providers: [],

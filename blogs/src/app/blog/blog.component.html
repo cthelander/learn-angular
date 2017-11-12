@@ -1,13 +1,26 @@
-<h2>
-    {{ entry.id }}
-    <span>
-    .)
-    </span>
-   <input [(ngModel)]="entry.title" placeholder="title">
-</h2>
-<div>
-    <span>
-        post:
-    </span>
-   <input [(ngModel)]="entry.post" placeholder="post">
+<ul class="entries">
+  <li *ngFor="let entry of entries" (click)="onSelect(entry)">
+      <span class="id">
+        {{entry.id}}
+      </span>
+      {{entry.title}}
+  </li>
+</ul>
+<button (click)="addEntry()">
+  New Post
+</button>
+<div *ngIf="selectedEntry">
+  <h2>
+      {{ selectedEntry.id }}
+      <span>
+      .)
+      </span>
+     <input [(ngModel)]="selectedEntry.title" placeholder="title">
+  </h2>
+  <div>
+      <span>
+          post:
+      </span>
+     <input [(ngModel)]="selectedEntry.post" placeholder="post">
+  </div>
 </div>
