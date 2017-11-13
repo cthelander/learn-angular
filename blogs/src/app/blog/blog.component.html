@@ -1,5 +1,6 @@
 <ul class="entries">
-  <li *ngFor="let entry of entries" (click)="onSelect(entry)">
+  <li class="entry" *ngFor="let entry of entries"
+  (click)="onSelect(entry)">
       <span class="id">
         {{entry.id}}
       </span>
@@ -14,9 +15,7 @@
 <div *ngIf="selectedEntry">
   <h2>
       {{ selectedEntry.id }}
-      <span>
-      .)
-      </span>
+      .
      <input [(ngModel)]="selectedEntry.title" placeholder="title">
   </h2>
   <div>
