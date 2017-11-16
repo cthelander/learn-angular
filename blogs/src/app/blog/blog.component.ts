@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Entry } from '../blog-entry';
 import { ENTRIES } from '../entry-list';
 
+import { BlogService } from '../blog.service';
+
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
@@ -10,7 +12,7 @@ import { ENTRIES } from '../entry-list';
 })
 export class BlogComponent implements OnInit {
 
-  entries = ENTRIES;
+  entries: Entry[];
 
   selectedEntry: Entry;
 
@@ -18,19 +20,14 @@ export class BlogComponent implements OnInit {
       this.selectedEntry = entry;
   }
 
-  addEntry(): void {
-    let newEntry = new Entry;
-      this.entries.push(newEntry);
-      newEntry.id = this.entries.length;
-      this.selectedEntry = newEntry;
-  }
-  doneEditing(): void {
-      this.selectedEntry = null;
+  getEntries(): void {
+      this.entries = this.blogService.getEntries();
   }
 
-  constructor() { }
+  constructor(private blogService: BlogService) {}
 
   ngOnInit() {
+    this.getEntries();
   }
 
 }

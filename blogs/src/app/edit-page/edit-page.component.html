@@ -1,0 +1,21 @@
+<div class="actions">
+  <button (click)="addEntry()">
+    New Post
+  </button>
+
+  <div *ngIf="selectedEntry">
+    <h3>
+        {{ selectedEntry.id }}
+        .
+       <input [(ngModel)]="selectedEntry.title" placeholder="title">
+    </h3>
+    <div>
+       <textarea rows="4" cols="50"
+       [(ngModel)]="selectedEntry.post" placeholder="post">
+       </textarea>
+    </div>
+    <button (click)="doneEditing()">
+      Done
+    </button>
+  </div>
+</div>
