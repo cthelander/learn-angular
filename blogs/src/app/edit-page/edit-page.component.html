@@ -1,9 +1,5 @@
 <div class="actions">
-  <button (click)="addEntry()">
-    New Post
-  </button>
-
-  <div *ngIf="selectedEntry">
+ <div *ngIf="selectedEntry">
     <h3>
         {{ selectedEntry.id }}
         .
@@ -14,8 +10,11 @@
        [(ngModel)]="selectedEntry.post" placeholder="post">
        </textarea>
     </div>
-    <button (click)="doneEditing()">
-      Done
+    <button (click)="doneEditing()"
+    routerLink="/blogs">
+      Save
     </button>
   </div>
+  <app-comments>
+  </app-comments>
 </div>

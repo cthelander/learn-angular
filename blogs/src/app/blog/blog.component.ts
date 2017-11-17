@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Entry } from '../blog-entry';
-import { ENTRIES } from '../entry-list';
+//import { ENTRIES } from '../entry-list';
 
 import { BlogService } from '../blog.service';
 
