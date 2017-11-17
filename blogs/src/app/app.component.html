@@ -1,13 +1,15 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <nav>
-    <a routerLink="/blogs">Blogs</a>
-  </nav>
-   <nav>
-    <a routerLink="/edit/{{newEntryId}}">Add new blog</a>
-  </nav>
+<div>
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{title}}!
+    </h1>
+    <nav>
+      <a routerLink="/blogs">Blogs</a>
+    </nav>
+     <nav>
+      <a routerLink="/edit/{{newEntryId}}">Add new blog</a>
+    </nav>
+  </div>
   <router-outlet>
   </router-outlet>
 </div>
