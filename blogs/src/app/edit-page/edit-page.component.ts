@@ -28,8 +28,8 @@ export class EditPageComponent implements OnInit {
   doneEditing(): void {
     this.selectedEntry = null;
     if(this.newEntry != null) {
-      this.appComponent.getNewEntryId();
       this.blogService.addEntry(this.newEntry);
+      this.appComponent.getNewEntryId();
       this.getEntries();
       this.newEntry = null;
     }
