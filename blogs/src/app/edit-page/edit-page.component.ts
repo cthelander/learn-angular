@@ -20,7 +20,6 @@ export class EditPageComponent implements OnInit {
 
   addEntry(): void {
     this.newEntry = new Entry;
-    //this.entries.push(newEntry);
     this.newEntry.id = this.entries.length + 1;
     this.selectedEntry = this.newEntry;
   }
