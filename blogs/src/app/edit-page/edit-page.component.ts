@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
 import { Entry } from '../blog-entry';
-//import { ENTRIES } from '../entry-list';
 import { BlogService } from '../blog.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -17,6 +16,7 @@ export class EditPageComponent implements OnInit {
   entries: Entry[];
   selectedEntry: Entry;
   newEntry: Entry;
+  newComment: boolean;
 
   addEntry(): void {
     this.newEntry = new Entry;
@@ -43,12 +43,16 @@ export class EditPageComponent implements OnInit {
     this.getEntry();
   }
 
-  getEntry() {
+  getEntry(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.selectedEntry = this.entries.find(x => x.id == id);
     if(id > this.entries.length) {
       this.addEntry();
     }
+  }
+
+  viewComments(): void {
+    this.newComment = true;
   }
 
   constructor(

@@ -14,11 +14,11 @@
     routerLink="/blogs">
       Save
     </button>
-     <button (click)="addComment()">
-      Add Comment
+     <button (click)="viewComments()">
+      view Comments
     </button>
   </div>
- <div *ngIf="addComment">
+ <div *ngIf="newComment">
     <app-comments>
     </app-comments>
   </div>
