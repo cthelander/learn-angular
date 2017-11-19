@@ -3,12 +3,18 @@
     <h1>
       Welcome to {{title}}!
     </h1>
-    <nav>
+  </div>
+  <div class="links">
+    <span>
+    <nav class="navLink">
       <a routerLink="/blogs">Blogs</a>
     </nav>
-     <nav>
+    <span>
+    </span>
+    <nav class="navLink new">
       <a routerLink="/edit/{{newEntryId}}">Add new blog</a>
     </nav>
+    </span>
   </div>
   <router-outlet>
   </router-outlet>

@@ -1,12 +1,16 @@
-<ul class="entries">
-  <a class="entry" *ngFor="let entry of entries"
-  (click)="onSelect(entry)"
-  routerLink="/edit/{{entry.id}}">
-    <span class="id">
-      {{entry.id}}
-      .
-    </span>
-    {{entry.title}}
-  </a>
-</ul>
-
+<div class="actions">
+  <ul class="entries">
+    <a class="entry" *ngFor="let entry of entries"
+    (click)="onSelect(entry)"
+    routerLink="/edit/{{entry.id}}">
+      <span class="id">
+        {{entry.id}}
+        .
+      </span>
+      {{entry.title}}
+    </a>
+  </ul>
+  <div *ngIf="entries.length == 0">
+  No blogs yet.
+  </div>
+</div>

@@ -1,0 +1,26 @@
+/* styles for the main app componet */
+
+.links {
+  margin-left: 40px;
+} 
+nav a {
+  text-decoration: none;
+  color: #fff;
+  height: 35px;
+  padding: 5px;
+  width: 100%;
+  display: inline-block;
+}
+.navLink {
+  margin-top: 10px;
+  background-color: #504a71;
+  width: 30%;
+  height: 35px;
+  padding: 5px;
+  display: inline-block;
+  text-align: center;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+.new {
+}

@@ -1,24 +1,29 @@
 <div class="actions">
  <div *ngIf="selectedEntry">
     <h3>
-        {{ selectedEntry.id }}
-        .
-       <input [(ngModel)]="selectedEntry.title" placeholder="title">
+      Post
+      {{ selectedEntry.id }}
+      .
+      <input [(ngModel)]="selectedEntry.title" placeholder="title">
     </h3>
     <div>
-       <textarea rows="4" cols="50"
+       <textarea rows="8" cols="90"
        [(ngModel)]="selectedEntry.post" placeholder="post">
        </textarea>
     </div>
-    <button (click)="doneEditing()"
+    <button class="save"
+    (click)="doneEditing()"
     routerLink="/blogs">
       Save
     </button>
      <button (click)="viewComments()">
-      view Comments
+      View Comments
     </button>
   </div>
- <div *ngIf="newComment">
+  <div *ngIf="newComment">
+    <h3>
+      Comments:
+    </h3>
     <app-comments>
     </app-comments>
   </div>

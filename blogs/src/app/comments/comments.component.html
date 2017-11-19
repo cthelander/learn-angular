@@ -1,4 +1,4 @@
-<div class="actions">
+<div class="comments">
   <ul class="entries">
     <a class="entry" *ngFor="let comment of comments"
   (click)="onSelect(comment)">
@@ -7,7 +7,6 @@
         .
       </span>
       {{comment.author}}
-      {{comment.entryId}}
     </a>
   </ul>
   <button (click)="addComment()">

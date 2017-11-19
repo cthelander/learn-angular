@@ -1,3 +1,9 @@
+/* styles for the edit page components*/
+
 .actions {
   margin-left: 40px;
+  background-color: #ddd;
+  padding: 20px;
+  width: 750px;
+  border: 2px solid #bbb;
 }
