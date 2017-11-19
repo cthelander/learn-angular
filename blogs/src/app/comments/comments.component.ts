@@ -13,38 +13,33 @@ import { Location } from '@angular/common';
 })
 export class CommentsComponent implements OnInit {
   
-  newComment: comment;  
   selectedComment: comment;
   comments: comment[];
+  entryId: number = 0;
   
   getComments(): void {
-    this.comments = this.blogService.getComments();
+    this.comments = this.blogService.getComments().filter(item => item.entryId == this.entryId);
   }
 
   addComment(): void {
-    this.newComment = new comment;
-    this.newComment.id = this.comments.length + 1;
-    this.selectedComment = this.newComment;
+    this.selectedComment = new comment;
+    this.selectedComment.id = this.comments.length + 1;
+    this.selectedComment.entryId = this.entryId;
   }
 
   doneEditing(): void {
-    this.selectedComment = null;
-    if(this.newComment != null) {
-      this.blogService.addComment(this.newComment);
+    if(this.selectedComment.id > this.comments.length) {
+      this.blogService.addComment(this.selectedComment);
       this.appComponent.getNewCommentId();
       this.getComments();
-      this.newComment = null;
+      this.selectedComment = null;
     }
+  }
+  
+  onSelect(commentSelected: comment): void {
+      this.selectedComment = commentSelected;
   }
 
-  getComment(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.selectedComment = this.comments.find(x => x.id == id);
-    if(id > this.comments.length) {
-      this.addComment();
-    }
-  }
- 
   constructor(
     private route: ActivatedRoute,
     private blogService: BlogService,
@@ -53,8 +48,8 @@ export class CommentsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+      this.entryId = +this.route.snapshot.paramMap.get('id');
     this.getComments();
-    this.getComment();
   }
 
 }

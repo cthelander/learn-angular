@@ -1,26 +1,27 @@
 <div class="actions">
-<ul class="entries">
-  <a class="entry" *ngFor="let comment of comments"
-  >
-    <span class="id">
-      {{comment.id}}
-      .
-    </span>
-    {{comment.author}}
-  </a>
-</ul>
-  <button (click)="addComment()">
-      Add Comment
-  </button>
- <div *ngIf="selectedComment">
-    <h3>
-        {{ newComment.id }}
+  <ul class="entries">
+    <a class="entry" *ngFor="let comment of comments"
+  (click)="onSelect(comment)">
+      <span class="id">
+        {{comment.id}}
         .
-       <input [(ngModel)]="newComment.author" placeholder="Author">
+      </span>
+      {{comment.author}}
+      {{comment.entryId}}
+    </a>
+  </ul>
+  <button (click)="addComment()">
+    Add Comment
+  </button>
+  <div *ngIf="selectedComment">
+    <h3>
+      {{ selectedComment.id }}
+      .
+      <input [(ngModel)]="selectedComment.author" placeholder="Author">
     </h3>
     <div>
        <textarea rows="4" cols="50"
-       [(ngModel)]="newComment.post" placeholder="post">
+         [(ngModel)]="selectedComment.post" placeholder="post">
        </textarea>
     </div>
     <button (click)="doneEditing()">
